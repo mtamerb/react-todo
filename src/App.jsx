@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './App.css'
+import { useState, useEffect } from 'react'
 import React from 'react';
-import Home from './Home.jsx';
+import Form from './Form.jsx';
+import Cards from './Cards.jsx';
 
 
 
+
+// app function
 function App() {
 
   return (
     <>
-      <Home /> 
+      <Form />
+      <Cards />
     </>
   )
 }

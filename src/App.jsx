@@ -1,15 +1,13 @@
-import './App.css'
+import './assets/css/App.sass'
 import { useState, useEffect } from 'react'
 import Form from './Form.jsx';
 import Cards from './Cards.jsx';
-
-
-
-
-
+import { useTodo } from './Todocontext';
 
 // app function
 function App() {
+
+  const { setTodos } = useTodo();
 
 
   // request to the server
@@ -17,7 +15,7 @@ function App() {
 
     await fetch("http://localhost:8080/api/list")
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => setTodos(data) )
       .catch((error) => console.log(error));
 
   }
@@ -28,15 +26,15 @@ function App() {
     Request()
   }, [])
 
+  
 
 
 
   return (
-    <>
-      <img src="src/assets/hamza.jpeg" className="card-img-top" alt="..." />
-    
+    < >
       <Form />
       <Cards />
+
     </>
   )
 }

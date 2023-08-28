@@ -8,7 +8,7 @@ export default function Form() {
 
     const [data, setData] = useState("")
 
-
+    // request to the server
     const handleSubmit = async (e) => {
         try {
             const response = await fetch("http://localhost:8080/api/create", {
@@ -32,16 +32,25 @@ export default function Form() {
 
     };
 
+    // input focus
+    const input = document.querySelector("input");
+    document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "Enter") {
+            input.focus();
+        }
+    });
+
+
 
     return (
 
         <div className="card">
 
-            <h1>ToDo</h1>
+            <h1>TODO</h1>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input value={data} onChange={(e) => setData(e.target.value)} type="text" autoComplete="off"
                     className="form-control" id="exampleFormControlInput1"
-                    placeholder="You gotta add a few tasks first, you know?" />
+                    placeholder="Press ctrl + enter" />
             </form>
 
 

@@ -1,13 +1,18 @@
-import { AiOutlineClose, AiFillCheckSquare } from "react-icons/ai";
+import { AiFillCheckSquare, AiFillDelete } from "react-icons/ai";
 import { RiCheckboxBlankLine } from "react-icons/ri";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import randomColor from "randomcolor";
 import { useTodo } from "./Todocontext";
 
+
+
 function Card({ item }) {
 
-    const { setTodos} = useTodo();
+    const { setTodos } = useTodo();
     let color = randomColor();
-    
+
     const handleDelete = async (id) => {
 
         await fetch("http://localhost:8080/api/delete/" + id, {
@@ -27,8 +32,9 @@ function Card({ item }) {
                 ) : (
                     <RiCheckboxBlankLine className="check" />
                 )}
-                <AiOutlineClose className="close" onClick={() => handleDelete(item.id)} />
-            </div>
+                <FontAwesomeIcon icon="fa-solid fa-trash" className="close" onClick={() => handleDelete(item.id)} />
+                {/*<AiFillDelete className="close" onClick={() => handleDelete(item.id)} />
+ */}            </div>
             {item.task}
         </div>
     );

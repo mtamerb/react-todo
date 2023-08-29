@@ -3,19 +3,22 @@ import { useState, useEffect } from 'react'
 import Form from './Form.jsx';
 import Cards from './Cards.jsx';
 import { useTodo } from './Todocontext';
+import { Button } from 'bootstrap';
 
 // app function
 function App() {
 
-  const { setTodos } = useTodo();
+  const { setTodos} = useTodo();
 
 
   // request to the server
   const Request = async () => {
 
+
+
     await fetch("http://localhost:8080/api/list")
       .then((response) => response.json())
-      .then((data) => setTodos(data.reverse()) )
+      .then((data) => setTodos(data.reverse()))
       .catch((error) => console.log(error));
 
   }
@@ -26,7 +29,7 @@ function App() {
     Request()
   }, [])
 
-  
+
 
 
 
@@ -34,7 +37,6 @@ function App() {
     < >
       <Form />
       <Cards />
-
     </>
   )
 }

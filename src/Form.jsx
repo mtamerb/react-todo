@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Buttons from "./Buttons.jsx";
 
 export default function Form() {
 
+    // input focus
+    const input = document.querySelector("input");
+    document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "Enter") {
+            input.focus();
+        }
+    });
 
 
     const [data, setData] = useState("")
@@ -32,15 +39,7 @@ export default function Form() {
 
     };
 
-    // input focus
-    const input = document.querySelector("input");
-    document.addEventListener("keydown", (e) => {
-        if (e.ctrlKey && e.key === "Enter") {
-            input.focus();
-        }
-    });
-
-
+  console.log("form rendered");
 
     return (
 
@@ -48,10 +47,12 @@ export default function Form() {
 
             <h1>TODO</h1>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <input value={data} onChange={(e) => setData(e.target.value)} type="text" autoComplete="off"
+                <input maxLength={250} value={data} onChange={(e) => setData(e.target.value)} type="text" autoComplete="off"
                     className="form-control" id="exampleFormControlInput1"
                     placeholder="Press ctrl + enter" />
             </form>
+
+            <Buttons />
 
 
 

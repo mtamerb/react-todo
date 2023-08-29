@@ -7,7 +7,7 @@ export default function Cards() {
 
     const { todos } = useTodo();
   
-
+    console.log("cards rendered");
     return (
 
         <div className="card-list">
@@ -20,3 +20,4 @@ export default function Cards() {
     )
 
 }
+

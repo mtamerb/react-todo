@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState} from "react";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,9 +8,9 @@ import { useTodo } from "./Todocontext";
 
 function Card({ item }) {
 
-    const { setTodos } = useTodo();
+    const { setTodos, todos } = useTodo();
 
-    const [complete, setComplet] = useState(item.completed);
+    const [complete, setComplete] = useState(item.completed);
 
     let color = randomColor();
 
@@ -65,14 +65,17 @@ function Card({ item }) {
         })
 
             .then((res) => res.json())
-            .then((data) => setTodos(data) )
+            .then((data) => setTodos(data))
             .catch((error) => console.log(error))
 
-        setComplet(!index.completed)
+        setComplete(!index.completed)
     }
+
+
     console.log("card rendered");
     return (
         <div style={{ backgroundColor: color }} className="cars" id={item.id}>
+             
             <div className="option">
                 {/* {item.completed ? (
                     <AiFillCheckSquare className="check" />
@@ -83,7 +86,7 @@ function Card({ item }) {
                 <FontAwesomeIcon icon={faPenToSquare} beat size="2x" className="edit" onClick={() => handleUpdate(item.id)} />
                 <FontAwesomeIcon icon={faTrash} size="2x" beat className="trash" onClick={() => handleDelete(item.id)} />
             </div>
-            {item.task}
+                {item.task}
         </div>
     );
 }

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Buttons from "./Buttons.jsx";
 
 export default function Form() {
 
@@ -39,20 +38,27 @@ export default function Form() {
 
     };
 
-  console.log("form rendered");
+
+
+    console.log("form rendered");
 
     return (
-
         <div className="card">
+
 
             <h1>TODO</h1>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input maxLength={250} value={data} onChange={(e) => setData(e.target.value)} type="text" autoComplete="off"
                     className="form-control" id="exampleFormControlInput1"
                     placeholder="Press ctrl + enter" />
-            </form>
 
-            <Buttons />
+                <button type='button' className='btn btn-outline-primary' onClick={() => setFilter('all')}>All</button>
+                <button type='button' className='btn btn-outline-secondary' onClick={() => setFilter('done')}>Done</button>
+                <button type='button' className='btn btn-outline-success' onClick={() => setFilter('todo')}>Todo</button>
+
+    
+
+            </form>
 
 
 

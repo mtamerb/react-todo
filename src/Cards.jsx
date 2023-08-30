@@ -15,7 +15,6 @@ export default function Cards() {
                 <Card key = {key} item={item} />
             )}
 
-            
         </div>
     )
 

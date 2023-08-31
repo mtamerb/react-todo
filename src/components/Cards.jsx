@@ -35,12 +35,12 @@ export default function Cards() {
 
     return (
 
-        <div className="card-list">
+        <div className="note-list">
 
 
             {
                 (filteredTodos ? filteredTodos : todos).map((item, key) =>
-                    <Card key={key} item={item} />
+                    <Card key={key} item={item}  />
                 )}
 
         </div>

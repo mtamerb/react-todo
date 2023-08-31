@@ -43,7 +43,7 @@ function Card({ item }) {
     console.log(item.completed);
     return (
 
-        <div className="cars" id={item.id}>
+        <div className={`note ${item.completed ? "text-line":""}`} id={item.id} >
 
             <div className="option">
                 <input type="checkbox" className="checkbox" onChange={() => handleUpdateCheck(item)} checked={item.completed} />

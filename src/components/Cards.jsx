@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "./Card.jsx";
-import { useTodo } from "./Todocontext";
+import { useTodo } from "./Todocontext.jsx";
 import { requestDeleteAll } from "./API.jsx";
 export default function Cards() {
 
@@ -14,6 +14,7 @@ export default function Cards() {
         switch (status) {
             case "Done":
                 setFilteredTodos(todos.filter((item) => item.completed === true));
+              
                 break;
             case "Clear":
                 requestDeleteAll(setTodos)

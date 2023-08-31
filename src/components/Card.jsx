@@ -1,28 +1,26 @@
 
-import { useState } from "react";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTodo } from "./Todocontext";
-import { requestDelete, requestList, requestCheck, requestUpdate } from "./API";
+import { requestDelete, requestCheck, requestUpdate } from "./API";
 
 function Card({ item }) {
-
-    const { setTodos, todos } = useTodo();
-    const [checked, setChecked] = useState(false);
+   
+    const { setTodos} = useTodo();
 
 
 
 
     //DELETE
-    const handleDelete = async (id) => {
+    const handleDelete =  (id) => {
         requestDelete(id, setTodos);
 
     }
 
 
     //UPDATE
-    const handleUpdate = async (id) => {
+    const handleUpdate =  (id) => {
         requestUpdate(id, item, setTodos);
 
     }
@@ -48,7 +46,7 @@ function Card({ item }) {
         <div className="cars" id={item.id}>
 
             <div className="option">
-                <input type="checkbox" className="checkbox" onClick={() => handleUpdateCheck(item)} defaultChecked={item.completed} />
+                <input type="checkbox" className="checkbox" onChange={() => handleUpdateCheck(item)} checked={item.completed} />
                 <FontAwesomeIcon icon={faPenToSquare} beat size="2x" className="edit" onClick={() => handleUpdate(item.id)} />
                 <FontAwesomeIcon icon={faTrash} size="2x" beat className="trash" onClick={() => handleDelete(item.id)} />
             </div>

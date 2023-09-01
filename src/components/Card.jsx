@@ -32,11 +32,7 @@ function Card({ item }) {
      
         requestCheck(index, setTodos)
 
-     
-
     }
-
-
 
 
 
@@ -46,7 +42,7 @@ function Card({ item }) {
         <div className={`note ${item.completed ? "text-line":""}`} id={item.id} >
 
             <div className="option">
-                <input type="checkbox" className="checkbox" onClick={() => handleUpdateCheck(item)} defaultChecked={item.completed} />
+                <input type="checkbox" className="checkbox" onClick={() => handleUpdateCheck(item)} checked={item.completed} />
                 <FontAwesomeIcon icon={faPenToSquare} beat size="2x" className="edit" onClick={() => handleUpdate(item.id)} />
                 <FontAwesomeIcon icon={faTrash} size="2x" beat className="trash" onClick={() => handleDelete(item.id)} />
             </div>

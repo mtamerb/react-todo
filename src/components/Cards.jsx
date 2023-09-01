@@ -10,7 +10,7 @@ export default function Cards() {
 
 
     useEffect(() => {
-        console.log("girdi")
+        
         switch (status) {
             case "Done":
                 setFilteredTodos(todos.filter((item) => item.completed === true));
@@ -39,8 +39,6 @@ export default function Cards() {
     return (
 
         <div className="note-list">
-
-
             {
                 (filteredTodos ? filteredTodos : todos).map((item, key) =>
                     <Card key={key} item={item}  />

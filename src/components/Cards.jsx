@@ -14,21 +14,24 @@ export default function Cards() {
         switch (status) {
             case "Done":
                 setFilteredTodos(todos.filter((item) => item.completed === true));
-              
                 break;
+
             case "Clear":
                 requestDeleteAll(setTodos)
-                
+                console.log("clear" )
+                setFilteredTodos(todos);
                 break;
+
             case "Todo":
                 setFilteredTodos(todos.filter((item) => item.completed === false));
                 break;
+
             case "All":
                 setFilteredTodos(todos);
                 break;
         }
 
-    }, [status])
+    }, [status,todos])
 
 
 

@@ -3,10 +3,14 @@
 // GET LİST
 export async function requestList(setTodos) {
 
-    await fetch("http://localhost:8080/api/list")
-        .then((response) => response.json())
-        .then((data) => setTodos(data))
-        .catch((error) => console.log(error));
+    try {
+        await fetch("http://localhost:8080/api/list")
+            .then((response) => response.json())
+            .then((data) => setTodos(data))
+            .catch((error) => console.log(error));
+    } catch (err) {
+        console.log(err)
+    }
 
 }
 
@@ -72,11 +76,10 @@ export async function requestDeleteAll(setTodos) {
     await fetch("http://localhost:8080/api/deleteAll", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" }
-    })
-        .then((res) => res.json())
+    }) .then((res) => res.json())
         .then((data) => setTodos(data))
         .catch((error) => console.log(error))
-       
+
 }
 
 
@@ -90,7 +93,6 @@ export async function requestUpdate(id, item, setTodos) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             task: task,
-
             systemDate: new Date().toISOString(),
         }),
     })

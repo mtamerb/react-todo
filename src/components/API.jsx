@@ -1,5 +1,4 @@
 
-
 // GET LİST
 export async function requestList(setTodos) {
 
@@ -14,12 +13,8 @@ export async function requestList(setTodos) {
 
 }
 
-
-
 // CREATE
-export async function requestCreate(data) {
-
-
+export async function requestCreate(data,setTodos) {
         const response = await fetch("http://localhost:8080/api/create", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -28,7 +23,8 @@ export async function requestCreate(data) {
                 completed: false,
                 systemDate: new Date().toISOString(),
             }),
-        });
+        }).then((res) => res.json()).then((data) => setTodos(data)).catch((error) => console.log(error));
+    
 }
 
 // DELETE 
@@ -61,6 +57,8 @@ export async function requestCheck(index, setTodos) {
         .catch((error) => console.log(error))
 
 }
+
+// DELETE ALL
 export async function requestDeleteAll(setTodos) {
     console.log("delete all")
     await fetch("http://localhost:8080/api/deleteAll", {

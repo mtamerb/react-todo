@@ -8,18 +8,13 @@ import {requestList}  from './components/API.jsx';
 
 // app function
 function App() {
+
 const {setTodos}=useTodo();
 
 
-
-  // request to the server
-  
-  //use effect create a function
   useEffect(() => {
   requestList(setTodos);
   },[])
-
-
 
 
   return (

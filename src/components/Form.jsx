@@ -26,9 +26,6 @@ const {setTodos}=useTodo();
     };
 
 
-    
-    
-
     return (
         <div className="card">
 

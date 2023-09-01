@@ -10,8 +10,6 @@ function Card({ item }) {
     const { setTodos} = useTodo();
 
 
-
-
     //DELETE
     const handleDelete =  (id) => {
         requestDelete(id, setTodos);
@@ -24,7 +22,6 @@ function Card({ item }) {
         requestUpdate(id, item, setTodos);
 
     }
-
 
 
     // update todo api completed status

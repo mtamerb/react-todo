@@ -19,7 +19,6 @@ export async function requestList(setTodos) {
 // CREATE
 export async function requestCreate(data) {
 
-    try {
 
         const response = await fetch("http://localhost:8080/api/create", {
             method: "POST",
@@ -30,15 +29,6 @@ export async function requestCreate(data) {
                 systemDate: new Date().toISOString(),
             }),
         });
-
-        if (!response.ok) {
-            throw new Error("HTTP Hata: " + response.status);
-        }
-
-    } catch (err) {
-        console.error(err);
-    }
-
 }
 
 // DELETE 

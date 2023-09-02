@@ -11,7 +11,6 @@ function App() {
 
 const {setTodos}=useTodo();
 
-
   useEffect(() => {
   requestList(setTodos);
   },[])
